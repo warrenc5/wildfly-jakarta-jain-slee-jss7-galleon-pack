@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module xmlns="urn:jboss:module:1.3" name="org.restcomm.slee.resource.http.common">
+    <resources>
+        <artifact name="${org.mobicents.resources:http-servlet-common}" />
+    </resources>
+
+    <dependencies>
+        <module name="jakarta.servlet.api" export="true" />
+        <module name="org.apache.logging.log4j.api" />
+    </dependencies>
+</module>

@@ -2,7 +2,7 @@
 
 # Function to decompose Maven GAV coordinates
 # Usage: gav "groupId:artifactId:version" or "groupId:artifactId:packaging:version"
-# Returns: array with group (dots to slashes), artifactId, and version
+# Returns: group (dots to slashes), artifactId, version, packaging via printf
 gav() {
     local gav_input="$1"
     local IFS=':'
@@ -14,6 +14,7 @@ gav() {
         group="${parts[0]}"
         artifact="${parts[1]}"
         version="${parts[2]}"
+        packaging="jar"
     elif [ ${#parts[@]} -eq 4 ]; then
         group="${parts[0]}"
         artifact="${parts[1]}"
@@ -27,33 +28,52 @@ gav() {
     # Convert dots to slashes in group
     local group_path="${group//.//}"
 
-    # Return array elements
-    echo "-ipath"
-    echo "*$group_path*"
-    echo "-a -ipath"
-    echo "*$artifact*"
+    # Return parsed components
+    printf '%s\n%s\n%s\n%s\n' "$group_path" "$artifact" "$version" "$packaging"
+}
+
+# Function to build find command arguments from GAV coordinates
+# Usage: gav_f "groupId:artifactId:version" or "groupId:artifactId:packaging:version"
+# Returns: array of find arguments for matching Maven artifacts
+gav_f() {
+    local gav_input="$1"
+    local -a parsed
+    mapfile -t parsed < <(gav "$gav_input")
+
+    local group_path="${parsed[0]}"
+    local artifact="${parsed[1]}"
+    local version="${parsed[2]}"
+    local packaging="${parsed[3]}"
+
+    # Build result array for find command
+    local result=()
+    result+=("-ipath")
+    result+=("*$group_path*")
+    result+=("-a" "-ipath")
+    result+=("*$artifact*")
 
     # Add packaging if present
     if [ -n "$packaging" ]; then
-        echo "-a -ipath"
-        echo "*.$packaging"
+        result+=("-a" "-ipath")
+        result+=("*.$packaging")
     fi
 
-    echo "-a -ipath"
-    echo "*$version*"
+    result+=("-a" "-ipath")
+    result+=("*$version*")
+
+    # Return array by printing elements
+    printf '%s\n' "${result[@]}"
 }
-ALL=(
-   org.mobicents.servers.jainslee.core:wildfly-mobicents-slee-galleon-pack:zip:9.0.0-SNAPSHOT
-   org.wildfly:wildfly-galleon-pack:zip:21.0.1.Final
-   org.wildfly:wildfly-servlet-galleon-pack:zip:21.0.1.Final
-   org.wildfly.core:wildfly-core-galleon-pack:zip:13.0.3.Final
-   org.wildfly:wildfly-ee-galleon-pack:zip:21.0.1.Final
-   org.wildfly:wildfly-datasources-galleon-pack:zip:11.2.0.Final
-)
+
+VERSION_CORE=13.0.3.Final
 VERSION_CORE=17.0.3.Final
+VERSION_WILDFLY=21.0.1.Final
 VERSION_WILDFLY=26.1.3.Final
+VERSION_WILDFLY=39.0.0.Final
 VERSION_DATASOURCES=2.2.6.Final
+VERSION_DATASOURCES=11.2.0.Final
 VERSION_MOBICENTS=9.0.0-SNAPSHOT
+
 ALL=(
    org.mobicents.servers.jainslee.core:wildfly-mobicents-slee-galleon-pack:zip:$VERSION_MOBICENTS
    org.wildfly:wildfly-galleon-pack:zip:$VERSION_WILDFLY
@@ -64,12 +84,15 @@ ALL=(
 )
 
 #ALL=(
-#   org.wildfly:wildfly-datasources-galleon-pack:zip:11.2.0.Final
+#   org.wildfly:wildfly-servlet-galleon-pack:zip:$VERSION_WILDFLY
 #)
 
 # Loop through all coordinates and find/unzip them
+cd tmp
 for COORD in "${ALL[@]}"; do
     echo "Processing: $COORD"
-    ARGS=$(gav "$COORD")
-    find /media/work/.m2/repository $ARGS -print -exec unzip -o {} -d tmp \;
+    mapfile -t fargs < <(gav_f "$COORD")
+    #printf '%s\n' "${fargs[@]}"
+    mvn dependency:copy -Dartifact=$COORD -DoutputDirectory=.
+    find /media/work/.m2/repository "${fargs[@]}" -print -exec unzip -q -o {} -d ./${COORD} \;
 done

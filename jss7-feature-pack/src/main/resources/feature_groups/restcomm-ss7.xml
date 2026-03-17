@@ -6,361 +6,361 @@
 -->
 <feature-group-spec name="restcomm-ss7" xmlns="urn:jboss:galleon:feature-group:1.0">
 
-<feature spec="subsystem.logging">
+    <feature spec="subsystem.logging">
         <feature spec="subsystem.logging.logger">
-                <param name="logger" value="org.mobicents.protocols" />
-                <param name="level" value="DEBUG" />
+            <param name="logger" value="org.mobicents.protocols" />
+            <param name="level" value="DEBUG" />
+        </feature>
+    </feature>
+    <feature spec="subsystem.restcomm-ss7">
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="SCTPManagement" />
+            <param name="name" value="SCTPManagement" />
+            <param name="type" value="SCTPManagement" />
+            <param name="class" value="org.mobicents.protocols.sctp.netty.NettySctpManagementImpl" />
+            <param name="enabled" value="true" />
+            <param name="interface" value="empty" />
+            <param name="reflection" value="false" />
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="optionSctpDisableFragments" />
+                <param name="name" value="optionSctpDisableFragments" />
+                <param name="value" value="true" />
+                <param name="type" value="bool" />
             </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="optionSctpFragmentInterleave" />
+                <param name="name" value="optionSctpFragmentInterleave" />
+                <param name="value" value="0" />
+                <param name="type" value="int" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="optionSoRcvbuf" />
+                <param name="name" value="optionSoRcvbuf" />
+                <param name="value" value="8192" />
+                <param name="type" value="int" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="optionSctpInitMaxstreams_MaxOutStreams" />
+                <param name="name" value="optionSctpInitMaxstreams_MaxOutStreams" />
+                <param name="value" value="2" />
+                <param name="type" value="int" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="optionSctpInitMaxstreams_MaxInStreams" />
+                <param name="name" value="optionSctpInitMaxstreams_MaxInStreams" />
+                <param name="value" value="2" />
+                <param name="type" value="int" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="SCTPShellExecutor" />
+            <param name="name" value="SCTPShellExecutor" />
+            <param name="type" value="SCTPShellExecutor" />
+            <param name="class" value="org.mobicents.protocols.ss7.m3ua.impl.oam.SCTPShellExecutor" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="RoutingLabelFormat" />
+            <param name="name" value="RoutingLabelFormat" />
+            <param name="type" value="RoutingLabelFormat" />
+            <param name="class" value="org.mobicents.protocols.ss7.mtp.RoutingLabelFormat" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="format" />
+                <param name="name" value="format" />
+                <param name="value" value="ITU" />
+                <param name="type" value="String" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="Mtp3UserPart" />
+            <param name="name" value="Mtp3UserPart" />
+            <param name="type" value="M3UAManagement" />
+            <param name="class" value="org.mobicents.protocols.ss7.m3ua.impl.M3UAManagementImpl" />
+            <param name="enabled" value="true" />
+            <param name="interface" value="org.mobicents.protocols.ss7.m3ua.M3UAManagement" />
+            <param name="reflection" value="true" />
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="productName" />
+                <param name="name" value="productName" />
+                <param name="value" value="TelScale-jSS7" />
+                <param name="type" value="String" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="transportManagement" />
+                <param name="name" value="transportManagement" />
+                <param name="value" value="SCTPManagement" />
+                <param name="type" value="Bean" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="routingLabelFormat" />
+                <param name="name" value="routingLabelFormat" />
+                <param name="value" value="RoutingLabelFormat" />
+                <param name="type" value="Bean" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="maxSequenceNumber" />
+                <param name="name" value="maxSequenceNumber" />
+                <param name="value" value="256" />
+                <param name="type" value="int" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="maxAsForRoute" />
+                <param name="name" value="maxAsForRoute" />
+                <param name="value" value="2" />
+                <param name="type" value="int" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="deliveryMessageThreadCount" />
+                <param name="name" value="deliveryMessageThreadCount" />
+                <param name="value" value="1" />
+                <param name="type" value="int" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="M3UAShellExecutor" />
+            <param name="name" value="M3UAShellExecutor" />
+            <param name="type" value="M3UAShellExecutor" />
+            <param name="class" value="org.mobicents.protocols.ss7.m3ua.impl.oam.M3UAShellExecutor" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="mtp3UserParts" />
+                <param name="name" value="mtp3UserParts" />
+                <param name="value" value="empty" />
+                <param name="type" value="Map" />
+                <feature spec="subsystem.restcomm-ss7.mbean.property.entry">
+                    <param name="entry" value="Mtp3UserPart" />
+                    <param name="key" value="1" />
+                    <param name="value" value="Mtp3UserPart" />
+                    <param name="type" value="Bean" />
+                </feature>
+            </feature>
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="SS7Clock" />
+            <param name="name" value="SS7Clock" />
+            <param name="type" value="SS7Clock" />
+            <param name="class" value="org.mobicents.protocols.ss7.scheduler.DefaultClock" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="SS7Scheduler" />
+            <param name="name" value="SS7Scheduler" />
+            <param name="type" value="SS7Scheduler" />
+            <param name="class" value="org.mobicents.protocols.ss7.scheduler.Scheduler" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="CircuitManager" />
+            <param name="name" value="CircuitManager" />
+            <param name="type" value="CircuitManager" />
+            <param name="class" value="org.mobicents.protocols.ss7.isup.impl.CircuitManagerImpl" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="SccpStack" />
+            <param name="name" value="SccpStack" />
+            <param name="type" value="SccpStack" />
+            <param name="class" value="org.mobicents.protocols.ss7.sccp.impl.SccpStackImpl" />
+            <param name="enabled" value="true" />
+            <param name="interface" value="empty" />
+            <param name="reflection" value="false" />
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="mtp3UserParts" />
+                <param name="name" value="mtp3UserParts" />
+                <param name="value" value="empty" />
+                <param name="type" value="Map" />
+                <feature spec="subsystem.restcomm-ss7.mbean.property.entry">
+                    <param name="entry" value="Mtp3UserPart" />
+                    <param name="key" value="1" />
+                    <param name="value" value="Mtp3UserPart" />
+                    <param name="type" value="Bean" />
+                </feature>
+            </feature>
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="SccpExecutor" />
+            <param name="name" value="SccpExecutor" />
+            <param name="type" value="SCTPShellExecutor" />
+            <param name="class" value="org.mobicents.protocols.ss7.sccp.impl.oam.SccpExecutor" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="TcapStackMap" />
+            <param name="name" value="TcapStackMap" />
+            <param name="type" value="TcapStack" />
+            <param name="class" value="org.mobicents.protocols.ss7.tcap.TCAPStackImpl" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="sccpStack" />
+                <param name="name" value="sccpStack" />
+                <param name="value" value="SccpStack" />
+                <param name="type" value="Bean" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="ssn" />
+                <param name="name" value="ssn" />
+                <param name="value" value="7" />
+                <param name="type" value="int" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="previewMode" />
+                <param name="name" value="previewMode" />
+                <param name="value" value="false" />
+                <param name="type" value="bool" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="MapStack" />
+            <param name="name" value="MapStack" />
+            <param name="type" value="MapStack" />
+            <param name="class" value="org.mobicents.protocols.ss7.map.MAPStackImpl" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="tcapStack" />
+                <param name="name" value="tcapStack" />
+                <param name="value" value="TcapStackMap" />
+                <param name="type" value="Bean" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="MAPSS7Service" />
+            <param name="name" value="MAPSS7Service" />
+            <param name="type" value="MAPSS7Service" />
+            <param name="class" value="org.mobicents.protocols.ss7.tcap.TCAPStackImpl" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="serviceName" />
+                <param name="name" value="serviceName" />
+                <param name="value" value="MAP" />
+                <param name="type" value="String" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="mapStack" />
+                <param name="name" value="mapStack" />
+                <param name="value" value="MapStack" />
+                <param name="type" value="Bean" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="jndiName" />
+                <param name="name" value="jndiName" />
+                <param name="value" value="java:/restcomm/ss7/map" />
+                <param name="type" value="String" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="ShellExecutor" />
+            <param name="name" value="ShellExecutor" />
+            <param name="type" value="ShellExecutor" />
+            <param name="class" value="org.mobicents.ss7.management.console.ShellServer" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="address" />
+                <param name="name" value="address" />
+                <param name="value" value="127.0.0.1" />
+                <param name="type" value="String" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="port" />
+                <param name="name" value="port" />
+                <param name="value" value="3435" />
+                <param name="type" value="int" />
+            </feature>
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="securityDomain" />
+                <param name="name" value="securityDomain" />
+                <param name="value" value="jmx-console" />
+                <param name="type" value="String" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="Ss7Management" />
+            <param name="name" value="Ss7Management" />
+            <param name="type" value="Ss7Management" />
+            <param name="class" value="org.mobicents.protocols.ss7.oam.common.jmxss7.Ss7Management" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+            <feature spec="subsystem.restcomm-ss7.mbean.property">
+                <param name="property" value="agentId" />
+                <param name="name" value="agentId" />
+                <param name="value" value="jboss" />
+                <param name="type" value="String" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="RestcommAlarmManagement" />
+            <param name="name" value="RestcommAlarmManagement" />
+            <param name="type" value="RestcommAlarmManagement" />
+            <param name="class" value="org.mobicents.protocols.ss7.oam.common.alarm.AlarmProvider" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="RestcommStatisticManagement" />
+            <param name="name" value="RestcommStatisticManagement" />
+            <param name="type" value="RestcommStatisticManagement" />
+            <param name="class" value="org.mobicents.protocols.ss7.oam.common.statistics.CounterProviderManagement" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="RestcommSctpManagement" />
+            <param name="name" value="RestcommSctpManagement" />
+            <param name="type" value="RestcommSctpManagement" />
+            <param name="class" value="org.mobicents.protocols.ss7.oam.common.sctp.SctpManagementJmx" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="RestcommM3uaManagement" />
+            <param name="name" value="RestcommM3uaManagement" />
+            <param name="type" value="RestcommM3uaManagement" />
+            <param name="class" value="org.mobicents.protocols.ss7.oam.common.m3ua.M3uaManagementJmx" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="RestcommSccpManagement" />
+            <param name="name" value="RestcommSccpManagement" />
+            <param name="type" value="RestcommSccpManagement" />
+            <param name="class" value="org.mobicents.protocols.ss7.oam.common.sccp.SccpManagementJmx" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="RestcommTcapManagement" />
+            <param name="name" value="RestcommTcapManagement" />
+            <param name="type" value="RestcommTcapManagement" />
+            <param name="class" value="org.mobicents.protocols.ss7.oam.common.tcap.TcapManagementJmx" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="RestcommTcapMapManagement" />
+            <param name="name" value="RestcommTcapMapManagement" />
+            <param name="type" value="RestcommTcapManagement" />
+            <param name="class" value="org.mobicents.protocols.ss7.oam.common.tcap.TcapManagementJmx" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean">
+            <param name="mbean" value="RestcommTcapCapManagement" />
+            <param name="name" value="RestcommTcapCapManagement" />
+            <param name="type" value="RestcommTcapManagement" />
+            <param name="class" value="org.mobicents.protocols.ss7.oam.common.tcap.TcapManagementJmx" />
+            <param name="enabled" value="true" />
+            <param name="reflection" value="false" />
+        </feature>
     </feature>
-<feature spec="subsystem.restcomm-ss7">
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="SCTPManagement" />
-  <param name="name" value="SCTPManagement" />
-  <param name="type" value="SCTPManagement" />
-  <param name="class" value="org.mobicents.protocols.sctp.netty.NettySctpManagementImpl" />
-  <param name="enabled" value="true" />
-  <param name="interface" value="empty" />
-  <param name="reflection" value="false" />
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="optionSctpDisableFragments" />
-    <param name="name" value="optionSctpDisableFragments" />
-    <param name="value" value="true" />
-    <param name="type" value="bool" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="optionSctpFragmentInterleave" />
-    <param name="name" value="optionSctpFragmentInterleave" />
-    <param name="value" value="0" />
-    <param name="type" value="int" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="optionSoRcvbuf" />
-    <param name="name" value="optionSoRcvbuf" />
-    <param name="value" value="8192" />
-    <param name="type" value="int" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="optionSctpInitMaxstreams_MaxOutStreams" />
-    <param name="name" value="optionSctpInitMaxstreams_MaxOutStreams" />
-    <param name="value" value="2" />
-    <param name="type" value="int" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="optionSctpInitMaxstreams_MaxInStreams" />
-    <param name="name" value="optionSctpInitMaxstreams_MaxInStreams" />
-    <param name="value" value="2" />
-    <param name="type" value="int" />
-  </feature>
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="SCTPShellExecutor" />
-  <param name="name" value="SCTPShellExecutor" />
-  <param name="type" value="SCTPShellExecutor" />
-  <param name="class" value="org.mobicents.protocols.ss7.m3ua.impl.oam.SCTPShellExecutor" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="RoutingLabelFormat" />
-  <param name="name" value="RoutingLabelFormat" />
-  <param name="type" value="RoutingLabelFormat" />
-  <param name="class" value="org.mobicents.protocols.ss7.mtp.RoutingLabelFormat" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="format" />
-    <param name="name" value="format" />
-    <param name="value" value="ITU" />
-    <param name="type" value="String" />
-  </feature>
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="Mtp3UserPart" />
-  <param name="name" value="Mtp3UserPart" />
-  <param name="type" value="M3UAManagement" />
-  <param name="class" value="org.mobicents.protocols.ss7.m3ua.impl.M3UAManagementImpl" />
-  <param name="enabled" value="true" />
-  <param name="interface" value="org.mobicents.protocols.ss7.m3ua.M3UAManagement" />
-  <param name="reflection" value="true" />
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="productName" />
-    <param name="name" value="productName" />
-    <param name="value" value="TelScale-jSS7" />
-    <param name="type" value="String" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="transportManagement" />
-    <param name="name" value="transportManagement" />
-    <param name="value" value="SCTPManagement" />
-    <param name="type" value="Bean" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="routingLabelFormat" />
-    <param name="name" value="routingLabelFormat" />
-    <param name="value" value="RoutingLabelFormat" />
-    <param name="type" value="Bean" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="maxSequenceNumber" />
-    <param name="name" value="maxSequenceNumber" />
-    <param name="value" value="256" />
-    <param name="type" value="int" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="maxAsForRoute" />
-    <param name="name" value="maxAsForRoute" />
-    <param name="value" value="2" />
-    <param name="type" value="int" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="deliveryMessageThreadCount" />
-    <param name="name" value="deliveryMessageThreadCount" />
-    <param name="value" value="1" />
-    <param name="type" value="int" />
-  </feature>
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="M3UAShellExecutor" />
-  <param name="name" value="M3UAShellExecutor" />
-  <param name="type" value="M3UAShellExecutor" />
-  <param name="class" value="org.mobicents.protocols.ss7.m3ua.impl.oam.M3UAShellExecutor" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="mtp3UserParts" />
-    <param name="name" value="mtp3UserParts" />
-    <param name="value" value="empty" />
-    <param name="type" value="Map" />
-    <feature spec="subsystem.restcomm-ss7.mbean.property.entry">
-      <param name="entry" value="Mtp3UserPart" />
-      <param name="key" value="1" />
-      <param name="value" value="Mtp3UserPart" />
-      <param name="type" value="Bean" />
-    </feature>
-  </feature>
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="SS7Clock" />
-  <param name="name" value="SS7Clock" />
-  <param name="type" value="SS7Clock" />
-  <param name="class" value="org.mobicents.protocols.ss7.scheduler.DefaultClock" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="SS7Scheduler" />
-  <param name="name" value="SS7Scheduler" />
-  <param name="type" value="SS7Scheduler" />
-  <param name="class" value="org.mobicents.protocols.ss7.scheduler.Scheduler" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="CircuitManager" />
-  <param name="name" value="CircuitManager" />
-  <param name="type" value="CircuitManager" />
-  <param name="class" value="org.mobicents.protocols.ss7.isup.impl.CircuitManagerImpl" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="SccpStack" />
-  <param name="name" value="SccpStack" />
-  <param name="type" value="SccpStack" />
-  <param name="class" value="org.mobicents.protocols.ss7.sccp.impl.SccpStackImpl" />
-  <param name="enabled" value="true" />
-  <param name="interface" value="empty" />
-  <param name="reflection" value="false" />
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="mtp3UserParts" />
-    <param name="name" value="mtp3UserParts" />
-    <param name="value" value="empty" />
-    <param name="type" value="Map" />
-    <feature spec="subsystem.restcomm-ss7.mbean.property.entry">
-      <param name="entry" value="Mtp3UserPart" />
-      <param name="key" value="1" />
-      <param name="value" value="Mtp3UserPart" />
-      <param name="type" value="Bean" />
-    </feature>
-  </feature>
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="SccpExecutor" />
-  <param name="name" value="SccpExecutor" />
-  <param name="type" value="SCTPShellExecutor" />
-  <param name="class" value="org.mobicents.protocols.ss7.sccp.impl.oam.SccpExecutor" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="TcapStackMap" />
-  <param name="name" value="TcapStackMap" />
-  <param name="type" value="TcapStack" />
-  <param name="class" value="org.mobicents.protocols.ss7.tcap.TCAPStackImpl" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="sccpStack" />
-    <param name="name" value="sccpStack" />
-    <param name="value" value="SccpStack" />
-    <param name="type" value="Bean" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="ssn" />
-    <param name="name" value="ssn" />
-    <param name="value" value="7" />
-    <param name="type" value="int" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="previewMode" />
-    <param name="name" value="previewMode" />
-    <param name="value" value="false" />
-    <param name="type" value="bool" />
-  </feature>
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="MapStack" />
-  <param name="name" value="MapStack" />
-  <param name="type" value="MapStack" />
-  <param name="class" value="org.mobicents.protocols.ss7.map.MAPStackImpl" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="tcapStack" />
-    <param name="name" value="tcapStack" />
-    <param name="value" value="TcapStackMap" />
-    <param name="type" value="Bean" />
-  </feature>
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="MAPSS7Service" />
-  <param name="name" value="MAPSS7Service" />
-  <param name="type" value="MAPSS7Service" />
-  <param name="class" value="org.mobicents.protocols.ss7.tcap.TCAPStackImpl" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="serviceName" />
-    <param name="name" value="serviceName" />
-    <param name="value" value="MAP" />
-    <param name="type" value="String" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="mapStack" />
-    <param name="name" value="mapStack" />
-    <param name="value" value="MapStack" />
-    <param name="type" value="Bean" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="jndiName" />
-    <param name="name" value="jndiName" />
-    <param name="value" value="java:/restcomm/ss7/map" />
-    <param name="type" value="String" />
-  </feature>
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="ShellExecutor" />
-  <param name="name" value="ShellExecutor" />
-  <param name="type" value="ShellExecutor" />
-  <param name="class" value="org.mobicents.ss7.management.console.ShellServer" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="address" />
-    <param name="name" value="address" />
-    <param name="value" value="127.0.0.1" />
-    <param name="type" value="String" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="port" />
-    <param name="name" value="port" />
-    <param name="value" value="3435" />
-    <param name="type" value="int" />
-  </feature>
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="securityDomain" />
-    <param name="name" value="securityDomain" />
-    <param name="value" value="jmx-console" />
-    <param name="type" value="String" />
-  </feature>
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="Ss7Management" />
-  <param name="name" value="Ss7Management" />
-  <param name="type" value="Ss7Management" />
-  <param name="class" value="org.mobicents.protocols.ss7.oam.common.jmxss7.Ss7Management" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-  <feature spec="subsystem.restcomm-ss7.mbean.property">
-    <param name="property" value="agentId" />
-    <param name="name" value="agentId" />
-    <param name="value" value="jboss" />
-    <param name="type" value="String" />
-  </feature>
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="RestcommAlarmManagement" />
-  <param name="name" value="RestcommAlarmManagement" />
-  <param name="type" value="RestcommAlarmManagement" />
-  <param name="class" value="org.mobicents.protocols.ss7.oam.common.alarm.AlarmProvider" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="RestcommStatisticManagement" />
-  <param name="name" value="RestcommStatisticManagement" />
-  <param name="type" value="RestcommStatisticManagement" />
-  <param name="class" value="org.mobicents.protocols.ss7.oam.common.statistics.CounterProviderManagement" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="RestcommSctpManagement" />
-  <param name="name" value="RestcommSctpManagement" />
-  <param name="type" value="RestcommSctpManagement" />
-  <param name="class" value="org.mobicents.protocols.ss7.oam.common.sctp.SctpManagementJmx" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="RestcommM3uaManagement" />
-  <param name="name" value="RestcommM3uaManagement" />
-  <param name="type" value="RestcommM3uaManagement" />
-  <param name="class" value="org.mobicents.protocols.ss7.oam.common.m3ua.M3uaManagementJmx" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="RestcommSccpManagement" />
-  <param name="name" value="RestcommSccpManagement" />
-  <param name="type" value="RestcommSccpManagement" />
-  <param name="class" value="org.mobicents.protocols.ss7.oam.common.sccp.SccpManagementJmx" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="RestcommTcapManagement" />
-  <param name="name" value="RestcommTcapManagement" />
-  <param name="type" value="RestcommTcapManagement" />
-  <param name="class" value="org.mobicents.protocols.ss7.oam.common.tcap.TcapManagementJmx" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="RestcommTcapMapManagement" />
-  <param name="name" value="RestcommTcapMapManagement" />
-  <param name="type" value="RestcommTcapManagement" />
-  <param name="class" value="org.mobicents.protocols.ss7.oam.common.tcap.TcapManagementJmx" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-<feature spec="subsystem.restcomm-ss7.mbean">
-  <param name="mbean" value="RestcommTcapCapManagement" />
-  <param name="name" value="RestcommTcapCapManagement" />
-  <param name="type" value="RestcommTcapManagement" />
-  <param name="class" value="org.mobicents.protocols.ss7.oam.common.tcap.TcapManagementJmx" />
-  <param name="enabled" value="true" />
-  <param name="reflection" value="false" />
-</feature>
-</feature>
 </feature-group-spec>

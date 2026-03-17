@@ -9,8 +9,10 @@
     <url>http://www.mofokom.mobi/site/</url>
     <description/>
     <modules>
+        <module>jakarta-jain-slee</module>
         <module>jain-slee-feature-pack</module>
         <module>jss7-feature-pack/</module>
+        <module>http-feature-pack/</module>
         <module>annotations-feature-pack</module>
         <module>provision</module>
     </modules>

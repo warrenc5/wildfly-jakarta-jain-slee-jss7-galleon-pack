@@ -18,7 +18,8 @@
 
     <properties>
         <version.mobicents>9.0.0-SNAPSHOT</version.mobicents>
-        <module-artifacts>true</module-artifacts>
+        <version.galleon>7.0.3.Final</version.galleon>
+        <module-artifacts>false</module-artifacts>
     </properties>
 
     <profiles>
@@ -43,7 +44,7 @@
         <profile>
             <id>wildfly-26.1.3.Final</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
                 <property>
                     <name>WF26</name>
                 </property>
@@ -61,7 +62,7 @@
         <profile>
             <id>wildfly-39.0.0.Final</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
                 <property>
                     <name>WF39</name>
                 </property>
@@ -83,7 +84,7 @@
             <plugin>
                 <groupId>org.jboss.galleon</groupId>
                 <artifactId>galleon-maven-plugin</artifactId>
-                <version>7.0.0.Final</version>
+                <version>${version.galleon}</version>
                 <executions>
                     <execution>
                         <id>server-provisioning</id>
@@ -115,21 +116,28 @@
                                     <groupId>${project.groupId}</groupId>
                                     <artifactId>wildfly-mobicents-slee-galleon-pack</artifactId>
                                     <version>${project.version}</version>
-                                    <inherit-packages>false</inherit-packages>
+                                    <inherit-packages>true</inherit-packages>
+                                    <inherit-configs>false</inherit-configs>
+                                </feature-pack>
+                                <feature-pack>
+                                    <groupId>org.mobicents.servers.jainslee.http</groupId>
+                                    <artifactId>wildfly-restcomm-http-galleon-pack</artifactId>
+                                    <version>${project.version}</version>
+                                    <inherit-packages>true</inherit-packages>
                                     <inherit-configs>false</inherit-configs>
                                 </feature-pack>
                                 <feature-pack>
                                     <groupId>org.mobicents.protocols.ss7</groupId>
                                     <artifactId>wildfly-restcomm-ss7-galleon-pack</artifactId>
                                     <version>${project.version}</version>
-                                    <inherit-packages>false</inherit-packages>
+                                    <inherit-packages>true</inherit-packages>
                                     <inherit-configs>false</inherit-configs>
                                 </feature-pack>
                                 <feature-pack>
-                                    <groupId>mobi.mofokom.javax.slee</groupId>
+                                    <groupId>mobi.mofokom.jakarta.slee</groupId>
                                     <artifactId>wildfly-jain-slee-annotations-galleon-pack</artifactId>
-                                    <version>1.0.6-SNAPSHOT</version>
-                                    <inherit-packages>false</inherit-packages>
+                                    <version>1.0.7-SNAPSHOT</version>
+                                    <inherit-packages>true</inherit-packages>
                                     <inherit-configs>false</inherit-configs>
                                 </feature-pack>
                             </feature-packs>
@@ -140,12 +148,14 @@
                                     <layers>
                                         <layer>mofokom-slee-annotations</layer>
                                         <layer>restcomm-ss7</layer>
+                                        <layer>restcomm-http</layer>
                                         <layer>mobicents-slee</layer>
                                         <layer>jaxrs</layer>
                                         <layer>management</layer>
                                         <layer>logging</layer>
                                         <layer>security-manager</layer>
                                         <layer>core-tools</layer>
+                                        <layer>ee-integration</layer>
 
                                         <!-- WILDFLY 21 OK
                                         <layer>management-security-realm</layer>

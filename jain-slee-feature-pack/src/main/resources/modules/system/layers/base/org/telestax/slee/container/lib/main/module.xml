@@ -24,18 +24,20 @@
         <artifact name="${org.mobicents.servers.jainslee.core:usage}" />
 
         <!-- SLEE CONTAINER DEPS - PLS KEEP VERSION PROPERTY A-Z ORDER -->
-        <artifact name="${javax.slee:jain-slee}" />
+        <artifact name="${mobi.mofokom.jakarta.slee:jain-slee}" />
         <artifact name="${org.mobicents.servers.jainslee.api:jain-slee-11-ext}" />
 
         <artifact name="${org.restcomm.cluster:cache}" />
         <artifact name="${org.restcomm.cluster:core}" />
         <artifact name="${org.restcomm.cluster:timers}" />
+
         <artifact name="${org.infinispan:infinispan-tree}" />
 
         <!-- NOT IN WILDFLY GALLEON DIST -->
 
         <artifact name="${commons-pool:commons-pool}" />
         <artifact name="${org.apache.commons:commons-lang3}" />
+        <artifact name="${org.javassist:javassist}" />
     </resources>
 
     <dependencies>
@@ -50,7 +52,7 @@
         <!-- NOT FOR WILDFLY 21
         <module name="org.apache.commons.lang" export="true" />
         -->
-        <module name="org.apache.log4j" optional="true" />
+        <module name="org.apache.logging.log4j.api" optional="true" />
         <module name="org.apache.xerces" optional="true" />
         <module name="org.jboss.staxmapper" />
         <module name="org.jboss.as.controller" />
@@ -67,9 +69,12 @@
         <module name="org.jboss.jts" />
         <module name="org.jboss.logging" />
         <module name="org.jboss.vfs" />
+        <!--
         <module name="org.javassist" optional="true" export="true" />
+        -->
         <module name="org.hibernate" export="true" />
         <module name="org.infinispan" export="true" />
+        <module name="org.infinispan.core" export="true" />
         <module name="org.infinispan.commons" optional="true" export="true" />
 
         <!-- OPTIONAL Dependencies from other feature packs: Howto add from there? -->

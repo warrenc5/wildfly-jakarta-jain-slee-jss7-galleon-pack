@@ -20,7 +20,7 @@
         <!--
         <module name="org.apache.commons.pool"/>
                 -->
-        <module name="org.apache.log4j" optional="true" />
+        <module name="org.apache.logging.log4j.api" />
         <module name="org.apache.xerces" optional="true" />
 
         <module name="org.jboss.staxmapper" />

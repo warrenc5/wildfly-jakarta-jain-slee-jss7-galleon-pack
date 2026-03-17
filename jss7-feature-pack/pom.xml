@@ -38,7 +38,7 @@
         <profile>
             <id>wildfly-26.1.3.Final</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
                 <property>
                     <name>WF26</name>
                 </property>
@@ -54,7 +54,7 @@
         <profile>
             <id>wildfly-39.0.0.Final</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
                 <property>
                     <name>WF39</name>
                 </property>

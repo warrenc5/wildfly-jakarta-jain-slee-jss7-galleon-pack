@@ -1,6 +1,9 @@
 <?xml version="1.0" ?>
 <package-spec xmlns="urn:jboss:galleon:package:3.0" name="org.telestax.slee.container.extension">
     <dependencies>
+        <package name="org.glassfish.jaxb" />
+        <package name="org.infinispan.core" />
+        <package name="org.infinispan.commons" />
         <package name="org.jboss.staxmapper" />
         <package name="org.telestax.slee.container.lib" />
     </dependencies>

@@ -6,12 +6,11 @@
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>mobi.mofokom.slee</groupId>
+        <groupId>mobi.mofokom.jakarta.slee</groupId>
         <artifactId>jain-slee-annotations-parent</artifactId>
-        <version>1.0.6-SNAPSHOT</version>
+        <version>1.0.7-SNAPSHOT</version>
     </parent>
 
-    <groupId>mobi.mofokom.javax.slee</groupId>
     <artifactId>wildfly-jain-slee-annotations-galleon-pack</artifactId>
 
     <packaging>pom</packaging>
