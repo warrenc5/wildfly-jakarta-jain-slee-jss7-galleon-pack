@@ -21,7 +21,8 @@
 -->
 <module xmlns="urn:jboss:module:1.3" name="mobi.mofokom.jain-slee-annotations">
     <resources>
-        <artifact name="${mobi.mofokom.javax.slee:jain-slee-annotations}" />
+        <artifact name="${mobi.mofokom.jakarta.slee:jain-slee-annotations}" />
+        <artifact name="${mobi.mofokom.jakarta.slee:jain-slee-annotations-processor}" />
         <artifact name="${org.aspectj:aspectjrt}" /> <!--aspectweaver-->
     </resources>
     <dependencies>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tasks xmlns="urn:wildfly:wildfly-feature-pack-tasks:3.2">
+    <copy-artifact artifact="org.mobicents.resources:http-servlet-ra-DU:9.0.0-SNAPSHOT" to-location="standalone/deployments/" />
+    <copy-artifact artifact="org.mobicents.resources:http-servlet-war:9.0.0-SNAPSHOT::war" to-location="standalone/deployments/restcomm.war" />
+</tasks>

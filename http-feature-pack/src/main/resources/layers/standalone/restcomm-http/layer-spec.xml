@@ -2,8 +2,10 @@
 <layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="restcomm-http">
     <dependencies>
         <layer name="mobicents-slee" />
+        <layer name="servlet" />
     </dependencies>
 
+    <feature-group name="ajp" />
     <packages>
         <package name="org.restcomm.slee.resource.http.common" />
     </packages>

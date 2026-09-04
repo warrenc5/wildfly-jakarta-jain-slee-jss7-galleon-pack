@@ -16,12 +16,22 @@
         <!--
         <layer name="sar" />
         -->
+        <layer name="management" />
+        <layer name="logging" />
+        <layer name="security-manager" />
+        <layer name="core-tools" />
+        <layer name="ee-integration" />
+
+        <!-- WILDFLY 21 OK
+        <layer>management-security-realm</layer>
+        -->
     </dependencies>
 
     <feature-group name="slee-container" />
 
     <packages>
         <package name="org.telestax.slee.container.lib" />
+        <package name="org.telestax.license" />
     </packages>
 
 </layer-spec>

@@ -8,8 +8,12 @@
 
     <feature spec="subsystem.logging">
         <feature spec="subsystem.logging.logger">
-            <param name="logger" value="org.mobicents.protocols" />
-            <param name="level" value="DEBUG" />
+            <param name="logger" value="org.mobicents.protocols.sctp" />
+            <param name="level" value="INFO" />
+        </feature>
+        <feature spec="subsystem.logging.logger">
+            <param name="logger" value="org.mobicents.protocols.ss7" />
+            <param name="level" value="INFO" />
         </feature>
     </feature>
     <feature spec="subsystem.restcomm-ss7">
@@ -268,7 +272,7 @@
             <feature spec="subsystem.restcomm-ss7.mbean.property">
                 <param name="property" value="address" />
                 <param name="name" value="address" />
-                <param name="value" value="127.0.0.1" />
+                <param name="value" value="0.0.0.0" />
                 <param name="type" value="String" />
             </feature>
             <feature spec="subsystem.restcomm-ss7.mbean.property">

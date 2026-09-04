@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feature-group-spec xmlns="urn:jboss:galleon:feature-group:1.0" name="ajp">
+
+    <feature spec="subsystem.undertow.server.ajp-listener">
+        <param name="server" value="default-server" />
+        <param name="ajp-listener" value="ajp" />
+        <param name="socket-binding" value="ajp" />
+        <param name="scheme" value="http" />
+    </feature>
+
+</feature-group-spec>

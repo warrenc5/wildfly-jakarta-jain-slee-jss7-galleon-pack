@@ -13,6 +13,7 @@
 
     <packages>
         <package name="org.mobicents.ss7.modules" />
+        <package name="org.mobicents.ss7.tools" />
     </packages>
 
 </layer-spec>

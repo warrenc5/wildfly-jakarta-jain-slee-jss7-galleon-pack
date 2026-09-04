@@ -22,5 +22,6 @@
 
         <module name="org.mobicents.ss7.commons" />
         <module name="org.mobicents.ss7.modules" />
+        <module name="org.wildfly.security.elytron" />
     </dependencies>
 </module>

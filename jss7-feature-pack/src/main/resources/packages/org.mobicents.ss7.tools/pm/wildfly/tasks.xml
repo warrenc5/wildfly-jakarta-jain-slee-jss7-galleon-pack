@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tasks xmlns="urn:wildfly:wildfly-feature-pack-tasks:3.2">
+    <copy-path src="bin" relative-to="content" target="bin" />
+    <copy-path src="configuration" relative-to="content" target="standalone/configuration" />
+    <copy-artifact artifact="org.mobicents.resources:restcomm-slee-ra-map-du" to-location="standalone/deployments/" />
+    <copy-artifact artifact="org.mobicents.protocols.ss7.m3ua:m3ua-cli-m3ua" to-location="bin/client/" />
+    <copy-artifact artifact="org.mobicents.protocols.ss7.m3ua:m3ua-cli-sctp" to-location="bin/client/" />
+    <copy-artifact artifact="org.mobicents.protocols.ss7.sccp:sccp-cli" to-location="bin/client/" />
+    <copy-artifact artifact="org.mobicents.protocols.ss7.tcap:tcap-cli" to-location="bin/client/" />
+    <copy-artifact artifact="org.mobicents.protocols.ss7.hardware:linkset-cli" to-location="bin/client/" />
+    <copy-artifact artifact="org.mobicents.protocols.ss7.management:shell-client" to-location="bin/client/" />
+    <copy-artifact artifact="org.mobicents.protocols.ss7.management:shell-client" to-location="bin/client/" />
+</tasks>

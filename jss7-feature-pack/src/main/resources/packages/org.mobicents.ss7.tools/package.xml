@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<package-spec xmlns="urn:jboss:galleon:package:2.0" name="org.mobicents.ss7.tools">
+    <dependencies>
+        <package name="org.restcomm.ss7.modules" />
+    </dependencies>
+</package-spec>

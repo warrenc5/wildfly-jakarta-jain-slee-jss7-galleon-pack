@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tasks xmlns="urn:wildfly:wildfly-feature-pack-tasks:3.2">
+  <copy-artifact artifact="org.mobicents.resources:restcomm-slee-ra-map-du" to-location="standalone/deployments/" />
+</tasks>

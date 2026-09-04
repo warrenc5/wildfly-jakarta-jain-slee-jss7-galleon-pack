@@ -5,15 +5,13 @@
 ~
 -->
 <feature-group-spec name="slee-container" xmlns="urn:jboss:galleon:feature-group:1.0">
-    <feature spec="subsystem.logging">
-        <feature spec="subsystem.logging.logger">
-            <param name="logger" value="org.telestax.slee.container" />
-            <param name="level" value="DEBUG" />
-        </feature>
-        <feature spec="subsystem.logging.logger">
-            <param name="logger" value="org.mobicents.slee.container.util.ObjectCloner" />
-            <param name="level" value="INFO" />
-        </feature>
+    <feature spec="subsystem.logging.logger">
+        <param name="logger" value="org.telestax.slee.container" />
+        <param name="level" value="INFO" />
+    </feature>
+    <feature spec="subsystem.logging.logger">
+        <param name="logger" value="org.mobicents.slee.container.util.ObjectCloner" />
+        <param name="level" value="WARN" />
     </feature>
     <feature spec="subsystem.slee-container">
         <feature spec="subsystem.slee-container.mbean">
@@ -159,7 +157,7 @@
             </feature>
         </feature>
 
-        <param name="cache-config" value="none"/>
+        <param name="cache-config" value="none" />
     </feature>
     <feature spec="subsystem.infinispan">
         <feature spec="subsystem.infinispan.cache-container">
@@ -222,4 +220,38 @@
             </feature>
         </feature>
     </feature>
+
+    <!--
+    <param
+        name="cache-config"
+        value='&lt;![CDATA["&lt;?xml version="1.0" encoding="UTF-8"?>
+            &lt;infinispan
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="urn:infinispan:config:8.1 http://www.infinispan.org/schemas/infinispan-config-8.1.xsd"
+                xmlns="urn:infinispan:config:8.1">
+                &lt;cache-container default-cache="slee-default" statistics="false" shutdown-hook="DONT_REGISTER">
+                    &lt;local-cache name="slee-default">
+                        &lt;locking isolation="REPEATABLE_READ" acquire-timeout="30000" striping="false" />
+                        &lt;transaction locking="PESSIMISTIC" mode="BATCH"/>
+                    &lt;/local-cache>
+    &lt;local-cache name="ac">
+                        &lt;locking isolation="REPEATABLE_READ" acquire-timeout="30000" striping="false" />
+                        &lt;transaction locking="PESSIMISTIC" mode="BATCH"/>
+                    &lt;/local-cache>
+    &lt;local-cache name="aci">
+                        &lt;locking isolation="REPEATABLE_READ" acquire-timeout="30000" striping="false" />
+                        &lt;transaction locking="PESSIMISTIC" mode="BATCH"/>
+                    &lt;/local-cache>
+    &lt;local-cache name="sbbe">
+                        &lt;locking isolation="REPEATABLE_READ" acquire-timeout="30000" striping="false" />
+                        &lt;transaction locking="PESSIMISTIC" mode="BATCH"/>
+                    &lt;/local-cache>
+    &lt;local-cache name="timer-facility">
+                        &lt;locking isolation="REPEATABLE_READ" acquire-timeout="30000" striping="false" />
+                        &lt;transaction locking="PESSIMISTIC" mode="BATCH"/>
+                    &lt;/local-cache>
+                &lt;/cache-container>
+            &lt;/infinispan>"]>'
+    />
+    -->
 </feature-group-spec>

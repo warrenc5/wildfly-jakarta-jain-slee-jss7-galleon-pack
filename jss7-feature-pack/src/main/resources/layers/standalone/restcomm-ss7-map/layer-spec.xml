@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="restcomm-ss7-map">
+    <dependencies>
+        <layer name="restcomm-ss7" />
+    </dependencies>
+
+    <packages>
+        <package name="org.restcomm.slee.resource.map" />
+    </packages>
+
+</layer-spec>

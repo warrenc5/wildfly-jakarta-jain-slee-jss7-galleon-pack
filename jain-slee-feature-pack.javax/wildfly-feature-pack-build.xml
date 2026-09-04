@@ -3,26 +3,33 @@
 ~ SPDX-License-Identifier: Apache-2.0
 ~
 -->
-<build xmlns="urn:wildfly:feature-pack-build:3.5" producer="org.mobicents.protocols.ss7:wildfly-restcomm-ss7-galleon-pack">
+<build xmlns="urn:wildfly:feature-pack-build:3.5" producer="org.mobicents.servers.jainslee.core:wildfly-mobicents-slee-galleon-pack">
 
-    <transitive>
+
+    <family name="wildfly">
+      <criteria name="jakarta-ee-9" />
+    </family>
+
+    <dependencies>
         <dependency group-id="org.wildfly" artifact-id="wildfly-ee-galleon-pack">
             <name>org.wildfly:wildfly-ee-galleon-pack</name>
             <packages inherit="true">
                 <exclude name="product.conf" />
             </packages>
-
-            <!--
             <default-configs inherit="false" />
-            -->
+        </dependency>
+        <dependency group-id="org.wildfly" artifact-id="wildfly-datasources-galleon-pack">
+            <name>org.wildfly:wildfly-datasources-galleon-pack</name>
+            <packages inherit="true">
+                <exclude name="product.conf" />
+            </packages>
+            <default-configs inherit="false" />
         </dependency>
         <dependency group-id="org.wildfly" artifact-id="wildfly-galleon-pack">
             <name>org.wildfly:wildfly-galleon-pack</name>
-            <!--
-            <default-configs inherit="false" />
-            -->
             <packages inherit="true">
             </packages>
+            <default-configs inherit="false" />
         </dependency>
         <!-- WF21
         <dependency group-id="org.wildfly.core" artifact-id="wildfly-core-galleon-pack">
@@ -36,31 +43,20 @@
             <default-configs inherit="false" />
             <packages inherit="true">
             </packages>
-        </dependency>
-        -->
-    </transitive>
-    <dependencies>
-        <dependency group-id="org.mobicents.servers.jainslee.core" artifact-id="wildfly-mobicents-slee-galleon-pack">
-            <name>org.mobicents.servers.jainslee.core:wildfly-mobicents-slee-galleon-pack</name>
-            <packages inherit="true" />
-            <!--
-            <default-configs inherit="true" />
-            -->
-        </dependency>
+        </dependency>-->
     </dependencies>
-    <default-packages>
-        <package name="org.mobicents.ss7.commons" />
-        <package name="org.mobicents.ss7.modules" />
-        <package name="org.mobicents.ss7.extension" />
-    </default-packages>
 
+    <default-packages>
+        <package name="org.telestax.slee.container.extension" />
+        <package name="org.telestax.slee.container.lib" />
+    </default-packages>
     <generate-feature-specs>
         <extensions>
             <standalone>
-                <extension>org.mobicents.ss7.extension</extension>
+                <extension>org.telestax.slee.container.extension</extension>
             </standalone>
             <domain>
-                <extension>org.mobicents.ss7.extension</extension>
+                <extension>org.telestax.slee.container.extension</extension>
             </domain>
         </extensions>
     </generate-feature-specs>
